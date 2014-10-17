@@ -3,7 +3,7 @@ var max=0;
 var imax=0;
 
 function setup() {
-   createCanvas(710,400);
+   createCanvas(window.innerWidth,window.innerHeight-50);
    mic = new p5.AudioIn();
    mic.start();
    fft = new p5.FFT();
@@ -34,7 +34,7 @@ function draw() {
    //ellipse(imax,map(ampmax,0,255,height,0),map(ampmax,0,255,10,100),map(ampmax,0,255,10,100));
 //ellipse(imax,map(ampmax,0,255,height,0),30,30);
 //ellipse(imax,100,30,30);
-rect(30,height,10,-imax);
+rect(30,height,10,-1*map(imax,0,150,0,window.innerHeight-50));
 
 
 
