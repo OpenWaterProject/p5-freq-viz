@@ -12,7 +12,6 @@ function setup() {
 
 function draw() {
    background(200);
-   ellipse(30,30,30,30);
    stroke(255,0,0);
    var spectrum = fft.analyze();
 
