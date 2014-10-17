@@ -14,19 +14,22 @@ function draw() {
    background(200);
    stroke(255,0,0);
    var spectrum = fft.analyze();
+
+   beginShape();
    var ampmax=0;
    for (i = 0; i<spectrum.length; i++) {
+    vertex(i, map(spectrum[i], 0, 255, height, 0) );
     if (spectrum[i]>ampmax) {
     //if (i>imax) imax=i;
       ampmax=spectrum[i];
       imax=i;
      }
    }
+   endShape();
    fill(255,0,0,100);
    //ellipse(imax,map(ampmax,0,255,height,0),map(ampmax,0,255,10,100),map(ampmax,0,255,10,100));
 //ellipse(imax,map(ampmax,0,255,height,0),30,30);
-//ellipse(imax,100,30,30);
-rect(30,height,10,-imax);
+ellipse(imax,100,30,30);
     //var ss = sort(spectrum);
     //var ssmax = ss[ss.length-1];
     //if (ssmax > max) {
