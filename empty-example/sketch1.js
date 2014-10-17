@@ -8,6 +8,14 @@ function setup() {
    mic.start();
    fft = new p5.FFT();
    fft.setInput(mic);
+
+var query = escape('CAXX0518'),
+    url = "http://query.yahooapis.com/v1/public/yql?q=" + query + "&format=json&callback=?"; 
+
+$.getJSON(url, function(data) {
+  console.log( data );
+});
+
 }
 
 function draw() {
@@ -27,6 +35,9 @@ function draw() {
 //ellipse(imax,map(ampmax,0,255,height,0),30,30);
 //ellipse(imax,100,30,30);
 rect(30,height,10,-imax);
+
+
+
     //var ss = sort(spectrum);
     //var ssmax = ss[ss.length-1];
     //if (ssmax > max) {
