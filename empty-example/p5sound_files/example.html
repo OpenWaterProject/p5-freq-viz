@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="example_data/p5_003.js"></script>
+    <script type="text/javascript" src="example_data/p5.js"></script>
+    <script type="text/javascript" src="example_data/p5_002.js"></script>
+    <style>
+      html, body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background:white;
+      }
+    </style>
+  </head>
+  <body>
+  
+<script type="text/javascript">var mic, fft;
+
+function setup() {
+   createCanvas(710,400);
+   mic = new p5.AudioIn();
+   mic.start();
+   fft = new p5.FFT();
+   fft.setInput(mic);
+}
+
+function draw() {
+   background(200);
+
+   var spectrum = fft.analyze();
+
+   beginShape();
+   for (i = 0; i<spectrum.length; i++) {
+    vertex(i, map(spectrum[i], 0, 255, height, 0) );
+   }
+   endShape();
+}
+new p5();</script><canvas height="400" width="710" style="width: 710px; height: 400px;" class="  p5_hidden" id="defaultCanvas"></canvas></body></html>
